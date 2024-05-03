@@ -1,6 +1,13 @@
 import { Metadata } from 'next';
 import Head from 'next/head';
 
+interface Metadata {
+    title: string; // Гарантируем, что title всегда строка
+    description: string;
+    metadataBase: URL;
+}
+
+
 export const metadata: Metadata = {
     title: 'Customers | Acme Dashboard',
     description: 'The official Next.js Learn Dashboard built with App Router.',
@@ -11,7 +18,7 @@ export default function Page() {
 
     return <>
         <Head>
-            <title>{metadata.title}</title>
+            <title>{metadata.title || 'Default Title'}</title>
             <meta name="description" content={metadata.description} />
             <link rel="canonical" href={metadata.metadataBase.toString()} />
         </Head>
