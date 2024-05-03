@@ -1,12 +1,10 @@
-import { Metadata } from 'next';
 import Head from 'next/head';
 
 interface Metadata {
-    title: string; // Гарантируем, что title всегда строка
+    title: string;
     description: string;
     metadataBase: URL;
 }
-
 
 export const metadata: Metadata = {
     title: 'Customers | Acme Dashboard',
