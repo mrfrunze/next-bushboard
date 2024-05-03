@@ -22,13 +22,15 @@ function formatTitle(title: string, metadata: Metadata): string {
 
 export default function RootLayout({
   children,
+  pageTitle = 'Acme Dashboard'
 }: {
   children: React.ReactNode;
+  pageTitle?: string;
 }) {
   return (
     <html lang="en">
       <Head>
-        <title>{metadata.title}</title>
+        <title>{formatTitle(pageTitle, metadata)}</title>
         <meta name="description" content={metadata.description} />
         <link rel="canonical" href={metadata.metadataBase.toString()} />
         <link rel="icon" href="/favicon.ico" />
