@@ -19,6 +19,8 @@ export default async function Page({
   const currentPage = Number(searchParams?.page) || 1;
 
   const totalPages = await fetchInvoicesPages(query);
+  
+  
 
   return (
     <div className="w-full">
