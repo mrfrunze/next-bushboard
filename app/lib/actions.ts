@@ -55,23 +55,26 @@ export async function createInvoice(prevState: State, formData: FormData) {
     revalidatePath('/dashboard/invoices');
     redirect('/dashboard/invoices');
 
-    const rawFormData = {
-        customerId: formData.get('customerId'),
-        amount: formData.get('amount'),
-        status: formData.get('status'),
-    }
-    console.log(rawFormData);
-    console.log(typeof rawFormData.amount);
+    // const rawFormData = {
+    //     customerId: formData.get('customerId'),
+    //     amount: formData.get('amount'),
+    //     status: formData.get('status'),
+    // }
+    // console.log(rawFormData);
+    // console.log(typeof rawFormData.amount);
 }
 
-export async function updateInvoice(id: string, prevState: State, formData: FormData) {
+export async function updateInvoice(
+    id: string, 
+    prevState: State, 
+    formData: FormData) {
 
     const validatedFields = UpdateInvoice.safeParse({
         customerId: formData.get('customerId'),
         amount: formData.get('amount'),
         status: formData.get('status'),
     });
-
+    // If form validation fails, return errors early. Otherwise, continue
     if (!validatedFields.success) {
         return {
             errors: validatedFields.error.flatten().fieldErrors,
