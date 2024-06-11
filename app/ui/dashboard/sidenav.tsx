@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import NavLinks from '@/app/ui/dashboard/nav-links';
 import AcmeLogo from '@/app/ui/acme-logo';
@@ -20,7 +21,7 @@ export default function SideNav() {
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
         <form 
           action={async () => {
-            "user server";
+            'use server';
             await signOut();
           }}
         >
